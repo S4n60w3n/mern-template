@@ -8,7 +8,7 @@ const ObjectId = require("mongodb").ObjectId;
 
 // This section will help you get a list of all the records.
 recordRoutes.route("/record").get(function (req, res) {
-  let db_connect = dbo.getDb("cards");
+  let db_connect = dbo.getDb("card");
   db_connect
     .collection("records")
     .find({})
@@ -32,13 +32,11 @@ recordRoutes.route("/record/:id").get(function (req, res) {
   
   // This section will help you create a new record.
   recordRoutes.route("/record/add").post(function (req, response) {
-    let db_connect = dbo.getDb();
-    let myobj = {
-      name: req.body.person_name,
-      position: req.body.person_position,
-      level: req.body.person_level,
+    const db_connect = dbo.getDb();
+    const myobj = {
+      title: req.body.title,
     };
-    db_connect.collection("records").insertOne(myobj, function (err, res) {
+    db_connect.collection("cards").insertOne(myobj, function (err, res) {
       if (err) throw err;
       response.json(res);
     });

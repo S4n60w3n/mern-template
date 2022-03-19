@@ -12,7 +12,7 @@ module.exports = {
     client.connect(function (err, db) {
       if (db)
       {
-        _db = db.db("cards");
+        _db = db.db("card");
         console.log("Successfully connected to MongoDB."); 
       }
       return callback(err);
