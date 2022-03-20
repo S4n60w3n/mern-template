@@ -1,8 +1,9 @@
 # mern-template
-
+Simple JS MERN template
 
 ## Getting started
 
-1. `cd server`
-2. `cp .env.template .env`
-3. Open .env and update `DATABASE_URI`
+1. `npm init`
+2. `cp server/.env.template server/.env`
+3. Open `server/.env` and update `DATABASE_URI`
+4. `npm run start`
