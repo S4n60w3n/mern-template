@@ -33,7 +33,7 @@ recordRoutes.route(BASE).post((req, res) => {
     return 
   }
 
-  const myobj = {
+  const myobj = { 
     title: req.body.title,
   };
   db_connect.collection(COLLECTION).insertOne(myobj, function (err, result) {

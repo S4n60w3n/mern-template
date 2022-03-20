@@ -12,11 +12,16 @@ function App() {
     await mutate()
   }, [fetch, mutate])
 
+  const onDelete = useCallback((id) => async () => {
+    await sendFetch(`${BACKEND_URL}/cards/${id}`, "DELETE")
+    await mutate()
+  }, [fetch, mutate])
+
   return (
     <div className="pt-16">
       <CreateCard onSubmit={onSubmit} />
       <div className="mt-8 w-full flex flex-wrap px-5 max-w-xl mx-auto">
-        {(data || []).map(({ title }) => <Card title={title} />)}
+        {(data || []).map(({ _id, title }) => <Card title={title} onDelete={onDelete(_id)} />)}
       </div>
     </div>
   );
